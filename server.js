@@ -59,12 +59,12 @@ app.get("/scrape", function (req, res) {
                     return res.json(err);
                 });
         });
-        res.redirect("/headlines");
+        res.redirect("/");
     });
 });
 
 
-app.get("/headlines", (req, res) => {
+app.get("/", (req, res) => {
     db.Article.find({}, (error, doc) => {
         if(error){
             console.log(error);
@@ -78,9 +78,9 @@ app.get("/headlines", (req, res) => {
 });
 
 
-app.get("/", (req, res) => {
-    res.send("This sucks");
-});
+// app.get("/", (req, res) => {
+//     res.send("This sucks");
+// });
 
 app.get("/articles", function (req, res) {
     db.Article.find({})
